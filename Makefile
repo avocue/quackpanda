@@ -45,6 +45,21 @@ clean:  ## Clean up Python file artifacts
 	@find . -type d -name ".pytest_cache" -exec rm -r {} +
 	@echo -e "$(GREEN)Cleanup complete!$(NC)"
 
+##@ Deploy
 
+# Build the project
+build: clean test
+	@echo "Building the project..."
+	poetry build
+
+# Build the documentation
+#docs:
+#	@echo "Building documentation..."
+#	cd docs && poetry run make html
+
+# Publish the package to PyPI
+publish:
+	@echo "Publishing to PyPI..."
+	poetry publish --build
 
 

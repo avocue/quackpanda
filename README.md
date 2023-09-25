@@ -15,7 +15,7 @@ Here's a basic example of how to use quackpanda to register a DataFrame as a tab
 
 ```python
 import pandas as pd
-from quackpanda import QuackPanda
+from quackpanda.core import QuackPanda
 
 # Create a sample DataFrame
 data = {'Name': ['Alice', 'Bob'], 'Age': [25, 30]}
@@ -25,7 +25,7 @@ df = pd.DataFrame(data)
 qp = QuackPanda()
 
 # Register DataFrame as a temporary table
-qp.registerTempTable(df, 'people')
+qp.register_temp_table(df, 'people')
 
 # Execute SQL query
 result_df = qp.execute_query('SELECT * FROM people WHERE Age > 25')
