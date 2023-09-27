@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "quackpanda"
-version = "0.1.1"
+version = "0.1.2"
 description = "QuackPanda: SQL Capability for Pandas using DuckDB"
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
