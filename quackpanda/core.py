@@ -46,6 +46,24 @@ class QuackPanda:
             logging.error(f"Error registering DataFrame as table: {table_name}, Error: {str(e)}")
             raise
 
+    def deregister_temp_table(self, table_name: str):
+        """
+        Deregister a temporary table from duckDB memory
+        :param table_name: The name of table to be deregistered.
+        :type table_name: str
+        :raises KeyError: Raises if table_name is not found in the registered tables
+        """
+        try:
+
+            self.tables.pop(table_name)
+            drop_table_query = f"DROP VIEW IF EXISTS {table_name};"
+            self.execute_query(drop_table_query)
+            logging.info(f"Temp Table {table_name} is  deregistered from the memory")
+        except KeyError as e:
+            logging.error(f"Error deregistering table {table_name}")
+            raise
+
+
     def execute_query(self, query: str) -> pd.DataFrame:
         """
         Executes a SQL query on the registered DataFrames and returns the result as a Pandas DataFrame.
