@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "quackpanda"
-version = "0.1.0"
-description = "Bring SparkSQL like syntax to pandas dataframe"
+version = "0.1.1"
+description = "QuackPanda: SQL Capability for Pandas using DuckDB"
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 
@@ -9,7 +9,6 @@ readme = "README.md"
 python = ">=3.10,<3.13"
 pandas = "1.5.3"
 duckdb = "^0.8.1"
-pytest = "^7.4.2"
 pyarrow = "^13.0.0"
 
 [tool.poetry.dev-dependencies]

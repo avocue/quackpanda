@@ -28,9 +28,9 @@ def test_register_temp_table(qp, generate_sample_df):
     assert qp.tables["my_table"].equals(sample_df)
 
 
-def test_execute_query(qp, sample_df):
+def test_execute_query(qp, generate_sample_df):
     table_name = "sample_table"
-    qp.register_temp_table(df=sample_df, table_name=table_name)
+    qp.register_temp_table(df=generate_sample_df, table_name=table_name)
 
     # Perform a query and get the result
     result_df = qp.execute_query(f"SELECT * FROM {table_name} WHERE a > 1")
